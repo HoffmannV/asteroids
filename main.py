@@ -10,7 +10,11 @@ def main():
     screen = pygame.display.set_mode((constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT))
     game_clock = pygame.time.Clock()
     dt = 0
-    player1 = player.Player(constants.SCREEN_WIDTH / 2, constants.SCREEN_HEIGHT / 2)
+    the_player = player.Player(constants.SCREEN_WIDTH / 2, constants.SCREEN_HEIGHT / 2)
+    updatable = pygame.sprite.Group()
+    drawable = pygame.sprite.Group()
+    updatable.add(the_player)
+    drawable.add(the_player)
 
     while True:
         for event in pygame.event.get():
@@ -18,7 +22,12 @@ def main():
                 return
         
         screen.fill('black')
-        player1.draw(screen)
+        
+        for sprite in updatable:
+            sprite.update(dt)
+        for sprite in drawable:
+            sprite.draw(screen)
+
         pygame.display.flip()
         
         #End of game loop the loop will wait 1/60 of a second before executing again 
