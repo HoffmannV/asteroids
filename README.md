@@ -10,8 +10,6 @@ Welcome to **Asteroids**, a Python-based game developed as part of the Boot.dev 
 - [How to Play](#how-to-play)
 - [Controls](#controls)
 - [Dependencies](#dependencies)
-- [Project Structure](#project-structure)
-- [License](#license)
 
 ## Description
 
